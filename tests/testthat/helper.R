@@ -1,4 +1,5 @@
 # helper function to skip tests if we don't have the 'foo' module
+library(reticulate)
 skip_if_no_neo4j_driver <- function() {
         isNeo4jPyDriverAvailable <- py_module_available("neo4j_driver")
         if (!isNeo4jPyDriverAvailable)
