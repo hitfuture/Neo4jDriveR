@@ -6,12 +6,12 @@ Description: What the package does (one paragraph).
 Depends: R (>= 3.4)
 Imports:
     reticulate
-Suggests:
-    pkgdown
 License: MIT + file LICENSE
 URL: https://github.com/hitfuture/Neo4jDriveR
 BugReports: https://github.com/hitfuture/Neo4jDriveR/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests: testthat
+Suggests: 
+    testthat
+    pkgdown
