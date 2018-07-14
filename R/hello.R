@@ -13,7 +13,8 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-#'@import reticulate
+
+#'@importFrom reticulate py_id
 init_neo4j <- function() {
 
  py_id(neo4jPy)
