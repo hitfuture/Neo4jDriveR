@@ -14,7 +14,7 @@ Latest development version from GitHub:
 if(!require(devtools)) {
   install.packages("devtools")
 }
-devtools::install_github("datacamp/tutorial")
+devtools::install_github("hitfuture/Neo4jDriveR")
 ```
 
 ## Getting started
