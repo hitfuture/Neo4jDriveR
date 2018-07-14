@@ -6,6 +6,8 @@ Description: What the package does (one paragraph).
 Depends: R (>= 3.4)
 Imports:
     reticulate
+Suggests:
+    pkgdown
 License: MIT + file LICENSE
 URL: https://github.com/hitfuture/Neo4jDriveR
 BugReports: https://github.com/hitfuture/Neo4jDriveR/issues
