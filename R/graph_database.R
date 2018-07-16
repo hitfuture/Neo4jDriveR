@@ -8,6 +8,9 @@
 #'@export
 GraphDatabase <- R6Class(classname = "GraphDatabase",
                          public = list(
+                                 initialize = function(){
+
+                                 },
                                  driver = function(uri, user_id, password)   {
                                          Driver$new(uri, user_id, password)
 
@@ -27,10 +30,12 @@ Driver <- R6Class(
                 uri_d = NULL,
                 user_id_d = NULL,
                 password_d = NULL,
+                py_driver = NULL,
                 initialize = function(uri , user_id , password) {
                         self$uri<- uri
                         self$user_id <- user_id
                         self$password <- password
+
 
 
                 }
