@@ -79,7 +79,7 @@
       <h1>Neo4j Bolt Driver 1.6 for R</h1>
                         <h4 class="author">Brett Taylor</h4>
             
-            <h4 class="date">2018-07-16</h4>
+            <h4 class="date">2018-07-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hitfuture/Neo4jDriveR/blob/master/vignettes/Neo4j_Driver.Rmd"><code>vignettes/Neo4j_Driver.Rmd</code></a></small>
       <div class="hidden name"><code>Neo4j_Driver.Rmd</code></div>
@@ -91,6 +91,9 @@
 <div id="quick-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#quick-example" class="anchor"></a>Quick Example</h2>
+<div id="python-driver" class="section level3">
+<h3 class="hasAnchor">
+<a href="#python-driver" class="anchor"></a>Python Driver</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">from</span> neo4j.v1 <span class="im">import</span> GraphDatabase</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="im">import</span> os</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">uri <span class="op">=</span> os.environ[<span class="st">'NEO4J_URI'</span>]</a>
@@ -106,7 +109,10 @@
 <a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="bu">print</span>(record[<span class="st">"f.name"</span>])</a>
 <a class="sourceLine" id="cb1-14" data-line-number="14"><span class="cf">with</span> driver.session() <span class="im">as</span> session:</a>
 <a class="sourceLine" id="cb1-15" data-line-number="15">    session.read_transaction(print_friends_of, <span class="st">"Alice"</span>)</a></code></pre></div>
-<p>Convert this to R</p>
+</div>
+<div id="convert-this-to-r" class="section level3">
+<h3 class="hasAnchor">
+<a href="#convert-this-to-r" class="anchor"></a>Convert this to R</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(Neo4jDriveR)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">uri =<span class="st"> "bolt://172.20.0.1:7687"</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">driver =<span class="st"> </span>GraphDatabase<span class="op">$</span><span class="kw">driver</span>(uri, <span class="dt">auth=</span><span class="kw">c</span>(<span class="st">"neo4j"</span>, <span class="st">"neo4j_is_nice"</span>))</a>
@@ -119,7 +125,11 @@
 <a class="sourceLine" id="cb2-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11">session &lt;-<span class="st"> </span><span class="kw">driver.session</span>()</a>
 <a class="sourceLine" id="cb2-12" data-line-number="12">session<span class="op">$</span><span class="kw">read_transaction</span>(print_friends_of, <span class="st">"Alice"</span>)</a></code></pre></div>
-<p>Next Generation of R - To make it useable by a data scientist</p>
+</div>
+<div id="next-generation-of-r" class="section level3">
+<h3 class="hasAnchor">
+<a href="#next-generation-of-r" class="anchor"></a>Next Generation of R</h3>
+<p>To make it useable by a data scientist</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(Neo4jDriveR)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">uri =<span class="st"> "bolt://172.20.0.1:7687"</span></a>
@@ -135,6 +145,7 @@
 <a class="sourceLine" id="cb3-13" data-line-number="13">session &lt;-<span class="st"> </span><span class="kw">graph_session</span>(driver)</a>
 <a class="sourceLine" id="cb3-14" data-line-number="14">results &lt;-<span class="st"> </span><span class="kw">graph_read_transaction</span>(session, print_friends_of, <span class="st">"Alice"</span>)</a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="kw">print</span>(results)</a></code></pre></div>
+</div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
