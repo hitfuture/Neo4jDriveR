@@ -3,6 +3,12 @@
 language: R
 sudo: false
 cache: packages
+python:
+  - "2.6"
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
 services:
   - neo4j
 #warnings_are_errors: false

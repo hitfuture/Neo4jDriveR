@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 
 ## Quick Example
 
+### Python Driver
 ```{python eval=TRUE, include=TRUE}
 from neo4j.v1 import GraphDatabase
 import os
@@ -42,7 +43,7 @@ with driver.session() as session:
     session.read_transaction(print_friends_of, "Alice")
 ```
 
-Convert this to R
+### Convert this to R
 
 ```{r eval=FALSE, error=FALSE,message=TRUE, warning=FALSE, include=TRUE}
 library(Neo4jDriveR)
@@ -59,7 +60,9 @@ session <- driver.session()
 session$read_transaction(print_friends_of, "Alice")
 ```
 
-Next Generation of R  - To make it useable by a data scientist
+### Next Generation of R
+
+To make it useable by a data scientist
 
 ```{r eval=FALSE, error=FALSE,message=TRUE, warning=FALSE, include=TRUE}
 library(Neo4jDriveR)
