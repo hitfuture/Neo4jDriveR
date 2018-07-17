@@ -39,7 +39,7 @@ Driver <- R6Class(
                         self$user_id_d <- user_id
 
                         token <- neo4jPy$basic_auth(user_id,password)
-                        py_driver <- neo4jPy$GraphDatabase$driver(uri, auth=token)
+                        self$py_driver <- neo4jPy$GraphDatabase$driver(uri, auth=token)
 
 
 
@@ -47,33 +47,75 @@ Driver <- R6Class(
 
                 },
                 drvr = function(){
-                        py_driver
+                        self$py_driver
+                },
+                session = function(){
+                        Session$new(self$drvr())
+
+
+
                 }
 
 
         ),
 
-        active = list(
-                # uri = function(value) {
-                #         if (missing(value))
-                #                 return(self$uri_d)
-                #         else
-                #                 self$uri_d <- value
-                # },
-                # user_id = function(value) {
-                #         if (missing(value))
-                #                 return(self$user_id_d)
-                #         else
-                #                 self$user_id_d <- value
-                # }
-
-        ),
-        private = list(
-                password_prv = NULL,
-                uri__prv = NULL,
-                user_id_prv = NULL
-        )
+        active = list(),
+        private = list()
 
 
 
 )
+
+
+#'@title Session
+#'@description Session is the class that allows transactions in the Neo4jDB
+
+#'@import R6
+#'@export
+Session <- R6Class(
+        classname = "Session",
+        public =   list(
+                py_session = NULL,
+                initialize = function(  driver) {
+
+                        self$py_session <- driver$session()
+
+                },
+                begin_transaction = function(){
+                        Transaction$new(self$py_session)
+                }
+
+
+        ),
+
+        active = list(),
+        private = list()
+
+
+
+)
+
+#'@title Transaction
+#'@description Transaction is the class that allows execution in the Neo4jDB
+
+#'@import R6
+#'@export
+Transaction <- R6Class(
+        classname = "Transaction",
+        public =   list(
+                py_transaction = NULL,
+                initialize = function(  session) {
+
+                         self$py_transaction <- session$begin_transaction()
+
+                }
+
+        ),
+
+        active = list(),
+        private = list()
+
+
+
+)
+

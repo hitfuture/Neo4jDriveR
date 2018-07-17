@@ -2,6 +2,8 @@
 
 export(Driver)
 export(GraphDatabase)
+export(Session)
+export(Transaction)
 export(init_neo4j)
 export(neo4j_python)
 import(R6)
