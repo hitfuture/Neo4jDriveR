@@ -5,7 +5,7 @@ test_that("Things work as expected", {
         skip_if_no_neo4j_driver()
         #This is where it would happens
         id <- init_neo4j()
-        expect_true(is.null(id))
+        expect_false(is.null(id))
 })
 
 test_that("will the python driver be available",{

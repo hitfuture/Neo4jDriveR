@@ -89,7 +89,18 @@ print(results)
 
 ## API Documentation
 
+* Driver Objects
+* Sessions & Transactions
+* Consuming Results
+* Core Data Types
+* Graph Data Types
+* Spatial Data Types
+* Temporal Data Types
+* Errors
+
+
 To install the latest stable version, use:
+
 
 ```{r eval=FALSE, include=TRUE}
 install.packages("Neo4jDriveR")
