@@ -3,10 +3,10 @@
 language: R
 sudo: false
 cache: packages
-matrix:
-  include:
-    - python:2.7
-    - python:3.6
+#matrix:
+#  include:
+#    - python:2.7
+#    - python:3.6
 services:
   - neo4j
 #warnings_are_errors: false
