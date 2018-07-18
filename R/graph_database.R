@@ -135,7 +135,22 @@ StatementResult <- R6Class(    classname = "StatementResult",
 
                                            self$py_statement_result <- result
 
+                                   },
+                                   records = function(){
+                                           self$py_statement_result$records()
+
+                                   },
+                                   data = function(){
+
+                                           self$py_statement_result$data()
+
+                                   },
+                                   data.frame = function(){
+
+                                           as.data.frame(self$py_statement_result$data())
+
                                    }
+
 
                            ),
 

@@ -3,6 +3,7 @@
 export(Driver)
 export(GraphDatabase)
 export(Session)
+export(StatementResult)
 export(Transaction)
 export(init_neo4j)
 export(neo4j_python)
