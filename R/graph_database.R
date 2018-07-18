@@ -149,6 +149,9 @@ StatementResult <- R6Class(    classname = "StatementResult",
 
                                            as.data.frame(self$py_statement_result$data())
 
+                                   },
+                                   attached = function(){
+                                           self$py_statement_result$attached()
                                    }
 
 
