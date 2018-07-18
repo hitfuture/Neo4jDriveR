@@ -108,6 +108,10 @@ Transaction <- R6Class(
 
                          self$py_transaction <- session$begin_transaction()
 
+                },
+                run = function(statement,...){
+                        StatementResult$new(self$py_transaction$run(statement,...))
+
                 }
 
         ),
@@ -119,3 +123,26 @@ Transaction <- R6Class(
 
 )
 
+#'@title StatementResult
+#'@description StatementResult is the class that is the return from execution Neo4jDB
+
+#'@import R6
+#'@export
+StatementResult <- R6Class(    classname = "StatementResult",
+                           public =   list(
+                                   py_statement_result = NULL,
+                                   initialize = function(  result) {
+
+                                           self$py_statement_result <- result
+
+                                   }
+
+                           ),
+
+                           active = list(),
+                           private = list()
+
+
+
+
+)
