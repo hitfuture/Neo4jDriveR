@@ -76,7 +76,12 @@ Driver <- R6Class(
 
 
 #'@title Session
-#'@description Session is the class that allows transactions in the Neo4jDB
+#'@description S A :class:`.Session` is a logical context for transactional units
+#' of work. Connections are drawn from the :class:`.Driver` connection
+#' pool as required.
+#' Session creation is a lightweight operation and sessions are not thread
+#' safe. Therefore a session should generally be short-lived, and not
+#' span multiple threads.
 
 #'@import R6
 #'@export
@@ -89,8 +94,54 @@ Session <- R6Class(
                         self$py_session <- driver$session()
 
                 },
-                begin_transaction = function(){
+                close = function(){
+                        self$py_session$close()
+                },
+                closed = function(){
+                        self$py_session$closed()
+
+                },
+                run = function(statement, parameters = NULL, ...) {
+                        StatementResult$new(self$py_session$run(statement, parameters, ...))
+                },
+                send = function(){
+                        self$py_session$send()
+                },
+                fetch = function(){
+                        self$py_session$fetch()
+                },
+                sync = function(){
+                        self$py_session$sync()
+                },
+                detach = function(result){
+                        self$py_session$detach(result)
+                },
+                last_bookmark = function(){
+                        self$py_session$last_bookmark()
+                },
+                has_transaction = function(){
+                        self$py_session$has_transaction()
+                },
+
+
+                begin_transaction = function(bookmark = NULL){
                         Transaction$new(self$py_session)
+                },
+                commit_transaction = function( ){
+                        self$py_session$commit_transaction()
+                },
+
+                rollback_transaction = function( ){
+                        self$py_session$rollback_transaction()
+                },
+                reset = function( ){
+                        self$py_session$reset()
+                },
+                read_transaction = function(unit_of_work, args, kwargs ){
+                        self$py_session$read_transaction(unit_of_work)
+                },
+                write_transaction = function(unit_of_work, args, kwargs  ){
+                        self$py_session$write_transaction()
                 }
 
 
