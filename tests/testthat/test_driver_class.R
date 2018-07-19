@@ -29,3 +29,30 @@ testthat::test_that("Expect Failure", {
 
                 )})
 })
+
+testthat::test_that("Driver$closed()",{
+
+        driv <- Driver$new(
+                        uri = Sys.getenv("NEO4J_URI"),
+                        user_id = Sys.getenv("NEO4J_USER"),
+                        password = Sys.getenv("NEO4J_PSWD")
+                )
+        expect_false(driv$closed())
+
+
+})
+
+testthat::test_that("Driver$close()",{
+
+        driv <- Driver$new(
+                uri = Sys.getenv("NEO4J_URI"),
+                user_id = Sys.getenv("NEO4J_USER"),
+                password = Sys.getenv("NEO4J_PSWD")
+        )
+        expect_false(driv$closed())
+        driv$close()
+
+        expect_true(driv$closed())
+
+
+})
