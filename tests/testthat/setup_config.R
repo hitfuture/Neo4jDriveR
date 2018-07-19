@@ -3,3 +3,5 @@ if(Sys.getenv("NEO4J_USER") == "") Sys.setenv("NEO4J_USER" = "neo4j")
 if(Sys.getenv("NEO4J_PSWD") == "") Sys.setenv("NEO4J_PSWD" = "neo4j")
 
 print("setup_config.R is executing")
+
+reticulate::py_run_file("build_hospital_data.py")

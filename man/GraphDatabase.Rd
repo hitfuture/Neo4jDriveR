@@ -9,6 +9,9 @@
 GraphDatabase
 }
 \description{
-GraphDatabase is a class that enables
+Accessor for :class:`.Driver` construction.
+}
+\examples{
+driver <- GraphDatabase$new()$driver(uri='bolt://localhost:7687',user_id='neo4j',password='neo4j')
 }
 \keyword{datasets}

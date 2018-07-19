@@ -1,7 +1,8 @@
 # Neo4j main class that gives access to Neo4j
 #'@title GraphDatabase
-#'@description GraphDatabase is a class that enables
-#  access to the Neo4j database.
+#'@description Accessor for :class:`.Driver` construction.
+#'@examples
+#'driver <- GraphDatabase$new()$driver(uri='bolt://localhost:7687',user_id='neo4j',password='neo4j')
 #
 
 #'@import R6
