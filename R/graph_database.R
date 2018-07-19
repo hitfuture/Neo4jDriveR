@@ -55,6 +55,13 @@ Driver <- R6Class(
 
 
 
+
+                },
+                close= function(){
+                        self$py_driver$close()
+                },
+                closed = function(){
+                        self$py_driver$closed()
                 }
 
 
