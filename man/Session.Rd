@@ -9,6 +9,11 @@
 Session
 }
 \description{
-Session is the class that allows transactions in the Neo4jDB
+S A :class:`.Session` is a logical context for transactional units
+of work. Connections are drawn from the :class:`.Driver` connection
+pool as required.
+Session creation is a lightweight operation and sessions are not thread
+safe. Therefore a session should generally be short-lived, and not
+span multiple threads.
 }
 \keyword{datasets}

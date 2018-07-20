@@ -12,6 +12,7 @@ services:
 #warnings_are_errors: false
 before_install:
   - pip install --user neo4j-driver
+  - pip install --user pandas
 #r_packages:
 #  - covr
 

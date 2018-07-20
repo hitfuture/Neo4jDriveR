@@ -18,3 +18,11 @@ with driver.session() as sess:
                 "MERGE (a2)-[:ISA]->(t2) "
                 "MERGE (a3)-[:ISA]->(t1) "
                  )
+
+
+with driver.session() as sess:
+       results =  sess.run(
+                "MATCH (hosp:Hospital) WHERE hosp.provider_id = {pid} return hosp.hospital_name, hosp.provider_id",
+                {"pid":50108}
+        )
+print(results.data())

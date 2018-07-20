@@ -30,3 +30,11 @@ init_neo4j <- function() {
 neo4j_python <- function(){
         neo4jPy
 }
+
+#'@title pandas_python
+#'@description return the pandas python driver
+#'
+#'@export
+pandas_python <- function(){
+        pd
+}
