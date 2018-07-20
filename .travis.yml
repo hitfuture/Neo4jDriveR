@@ -9,6 +9,11 @@ cache: packages
 #    - python:3.6
 services:
   - neo4j
+
+notifications:
+  webhooks:
+    - https://outlook.office.com/webhook/79cf3255-ca8f-4930-9989-b8d90d179e79@35161fde-e1d6-42a9-b4c5-5feca512255d/TravisCI/7d7f7e85de3a4f8eb47ca357b1d7a7ab/0954b8aa-0448-4e7f-ae89-5907048a7c8c
+
 #warnings_are_errors: false
 before_install:
   - pip install --user neo4j-driver
