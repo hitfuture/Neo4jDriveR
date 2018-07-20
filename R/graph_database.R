@@ -169,7 +169,7 @@ Transaction <- R6Class(
 
                 },
                 run = function(statement, parameters = NULL, ...){
-                        StatementResult$new(self$py_transaction$run(statement,parameters = parameters...))
+                        StatementResult$new(self$py_transaction$run(statement,parameters = parameters,...))
 
                 }
 
