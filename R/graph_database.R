@@ -2,7 +2,10 @@
 #'@title GraphDatabase
 #'@description Accessor for :class:`.Driver` construction.
 #'@examples
-#'driver <- GraphDatabase$new()$driver(uri='bolt://localhost:7687',user_id='neo4j',password='neo4j')
+#'uri <-  Sys.getenv("NEO4J_URI")
+#'uid <- Sys.getenv("NEO4J_USER")
+#'pswd = Sys.getenv("NEO4J_PSWD")
+#'driver <- GraphDatabase$new()$driver(uri=uri,user_id=uid,password=pswd)
 #
 
 #'@import R6

@@ -51,6 +51,7 @@ testthat::test_that("run_statement_that_returns_multiple_records_with_multiple_c
         results <- session$run("MATCH (n:Hospital) return n.provider_id as provider_id, n.hospital_name as hospital_name")
         count <- 0
         list_of_data <- results$data.frame()
+        expect_is(list_of_data,"data.frame")
 
         session$close()
 })
